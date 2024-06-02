@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antibody_analysis_fastapi"
+version = "0.1.0"
+description = "A FastAPI backend for analyzing antibody binding data"
+authors = [
+    { name = "Neeli Katti", email = "ngkatti@hotmail.com" }
+]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pandas",
+    "matplotlib",
+    "python-multipart",
+]
+
+[project.scripts]
+antibody-analysis = "app.main:app"
+
+[tool.setuptools]
+packages = ["src", "app"]
+package-dir = {"" = "src"}
+include_package_data = true
+
+[tool.setuptools.package-data]
+"" = ["example_data/*", "temp/*"]
+
+[tool.setuptools.data-files]
+"" = ["example_data/*", "temp/*"]
+

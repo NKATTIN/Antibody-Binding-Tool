@@ -1,0 +1,52 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore version control directories
+.git/
+.gitignore
+
+# Ignore Docker-related files
+.dockerignore
+Dockerfile
+
+# Ignore IDE configuration directories
+.idea/
+.vscode/
+
+# Ignore test and coverage results
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+.coverage.*
+
+# Ignore build directories
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Ignore temporary files
+*.swp
+*~
+
+# Ignore logs
+*.log
+
+# Ignore MacOS specific files
+.DS_Store

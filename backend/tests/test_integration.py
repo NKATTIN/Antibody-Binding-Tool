@@ -1,0 +1,25 @@
+import os
+from fastapi.testclient import TestClient
+from src.antibody_binding_api.main import app
+
+client = TestClient(app)
+
+def test_upload_file():
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+    file_path = os.path.join(project_root, "example_data/input_data.csv")
+    with open(file_path, "rb") as file:
+        response = client.post("api/upload/", files={"file": file})
+        assert response.status_code == 200
+        assert "histogram" in response.json()
+        assert "statistics" in response.json()
+
+def test_download_file():
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+    file_path = os.path.join(project_root, "example_data/input_data.csv")
+    with open(file_path, "rb") as file:
+        client.post("api/upload/", files={"file": file})
+
+    response = client.get("api/download/histogram.png")
+    assert response.status_code == 200
+    response = client.get("api/download/stats.csv")
+    assert response.status_code == 200

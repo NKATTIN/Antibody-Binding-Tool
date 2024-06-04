@@ -26,7 +26,7 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           pip install pip-tools
-          pip-compile --generate-hashes -o backend/requirements.txt pyproject.toml
+          pip-compile --generate-hashes -o backend/requirements.txt backend/pyproject.toml
 
       - name: Install dependencies
         run: |

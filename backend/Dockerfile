@@ -45,4 +45,4 @@ ENV PATH=/venv/bin:$PATH
 
 # Define the entrypoint and command to run the FastAPI application with Uvicorn
 ENTRYPOINT ["uvicorn"]
-CMD ["src.antibody-binding-api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["antibody-binding-api.main:app", "--host", "0.0.0.0", "--port", "8000"]

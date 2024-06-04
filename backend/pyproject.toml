@@ -18,16 +18,12 @@ dependencies = [
 ]
 
 [project.scripts]
-antibody-analysis = "app.main:app"
+antibody-analysis = "antibody_binding_api.main:app"
 
 [tool.setuptools]
-packages = ["src", "app"]
+packages = ["antibody_binding_api"]
 package-dir = {"" = "src"}
-include_package_data = true
 
 [tool.setuptools.package-data]
-"" = ["example_data/*", "temp/*"]
-
-[tool.setuptools.data-files]
-"" = ["example_data/*", "temp/*"]
+"antibody_binding_api" = ["example_data/*", "temp/*"]
 

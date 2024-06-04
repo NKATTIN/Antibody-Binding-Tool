@@ -55,7 +55,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t nkattin/antibodybind:latest .
+          docker build -t nkattin/antibodybind:latest -f backend/Dockerfile backend/
 
       - name: Push Docker image
         run: |

@@ -60,7 +60,7 @@ This repository contains a FastAPI backend for analysing antibody binding data.
         curl -O "http://localhost:8000/api/download/filename.csv"
         ```
 
-        The filename will likely be generated as histogram
+        The filename will likely be generated as histogram.png or stats.csv.
 
 
 ### Running Tests

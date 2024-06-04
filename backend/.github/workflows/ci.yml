@@ -52,3 +52,24 @@ jobs:
       - name: Push Docker image
         run: |
           docker push nkattin/antibodybind:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Ansible
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ansible
+
+      - name: Run Ansible Playbook
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: "false"
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          ansible-playbook -i deploy/hosts.ini deploy/deploy.yml --private-key private_key -u ${{ secrets.SSH_USER }}

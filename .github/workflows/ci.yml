@@ -21,6 +21,13 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install pip-tools and compile requirements
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install pip-tools
+          pip-compile --generate-hashes -o backend/requirements.txt pyproject.toml
+
       - name: Install dependencies
         run: |
           python -m venv .venv

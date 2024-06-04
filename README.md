@@ -41,7 +41,25 @@ This repository contains a FastAPI backend for analysing antibody binding data.
     uvicorn antibody_binding_api.main:app --reload --host 0.0.0.0 --port 8000
    ```
 
-    The application will be available at http://localhost:8000.
+    The application will be available at http://localhost:8000/api/docs.
+
+
+3. **Using application**
+
+    Once the application is running, you can use the following endpoints:
+
+    1. Upload a CSV file:
+
+        ```bash
+        curl -X POST "http://localhost:8000/api/upload/" -F "file=@path_to_your_file.csv"
+        ```
+    
+    2. Download the generated histogram or statistics CSV:
+
+        ```bash
+        curl -O "http://localhost:8000/api/download/filename.csv"
+        ```
+
 
 
 ### Running Tests

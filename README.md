@@ -1,6 +1,6 @@
 # Antibody Analysis FastAPI
 
-This repository contains a FastAPI backend for analysing antibody binding data.
+This repository contains a FastAPI backend for analysing antibody binding data. The application processes uploaded CSV files containing antibody binding data by calculating statistical measures (minimum, maximum, and mean optical densities) for each amino acid sequence and generating a histogram of the optical densities. Users can upload their CSV files via an endpoint, and the application returns paths to the generated statistics and histogram files, which can then be downloaded via another endpoint.
 
 ## Getting Started
 
